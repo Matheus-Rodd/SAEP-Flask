@@ -1,76 +1,80 @@
-📦 Sistema de Gestão de Estoque - Simulado SAEP
-Este projeto é uma solução completa para o Simulado Prático SAEP, desenvolvendo um sistema web para a gestão de estoque de equipamentos eletrônicos.
+Aqui está um README.md completo e profissional, pronto para ser copiado e colado no seu repositório do GitHub.
 
-O sistema utiliza um Backend (API) criado em Flask (Python) com um banco de dados SQLite, e um Frontend (Interface) construído com HTML, CSS e JavaScript puros (vanilla), que consome a API.
+Este arquivo explica o que é o projeto, quais tecnologias ele usa, e o mais importante: como instalá-lo e executá-lo passo a passo.
+
+Crie um arquivo chamado README.md na pasta raiz do seu projeto (ao lado da pasta sistema e venv) e cole o seguinte conteúdo nele:
+
+📦 Sistema de Gestão de Estoque - Simulado SAEP
+Sistema web completo (Flask + SQLite + Vanilla JS) para gestão de estoque, desenvolvido como solução para o Simulado Prático SAEP.
 
 ✨ Funcionalidades
-Autenticação: Sistema de login (com validação no backend) e logout (com limpeza de localStorage).
+Este projeto implementa um sistema de gerenciamento de almoxarifado com as seguintes funcionalidades:
 
-Dashboard Principal: Exibe o nome do usuário logado e os menus de navegação.
+Autenticação: Sistema de login seguro e função de logout.
+
+Dashboard: Página principal com o nome do usuário logado e navegação.
 
 Gestão de Produtos (CRUD):
 
-Listagem completa de produtos.
-
-Cadastro de novos produtos (via modal).
-
-Edição de produtos existentes (via modal).
-
-Exclusão de produtos (com validação para não excluir itens com histórico).
+Listar, cadastrar, editar e excluir produtos.
 
 Busca dinâmica por nome.
+
+Validação de regras de negócio (ex: não permitir exclusão de produto com histórico).
 
 Gestão de Estoque:
 
 Registro de entradas e saídas de estoque.
 
-Listagem de produtos em ordem alfabética no formulário.
+Formulário com lista de produtos em ordem alfabética.
 
-Alerta de Estoque Mínimo: Dispara um alerta visual (via alert()) quando o estoque de um produto fica abaixo do limite configurado após uma saída.
+Alerta de Estoque Mínimo: Dispara um alerta visual imediato quando uma saída de produto resulta em um estoque abaixo do limite configurado.
 
-Histórico: Visualização de todas as movimentações registradas, ordenadas por data (mais recente primeiro).
+Histórico: Exibição de todas as movimentações de estoque, ordenadas por data.
 
 🚀 Tecnologias Utilizadas
-Backend:
+Backend (API):
 
 Python 3.x
 
 Flask
 
-Flask-SQLAlchemy (para interagir com o banco)
+Flask-SQLAlchemy (ORM para o banco de dados)
 
-Flask-CORS (para permitir a comunicação Frontend <-> Backend)
+Flask-CORS (Para permitir a comunicação entre Frontend e Backend)
 
-Database:
+Banco de Dados:
 
-SQLite 3 (baseado em arquivo, saep_db.db)
+SQLite 3 (Armazenado no arquivo saep_db.db)
 
-Frontend:
+Frontend (Interface):
 
-HTML5
+HTML5 (Estrutura semântica)
 
-CSS3 (Estilo "Clean" moderno)
+CSS3 (Estilo "Clean" moderno com Variáveis CSS)
 
-JavaScript (ES6+)
+JavaScript (Vanilla JS, ES6+)
 
-fetch() API (para consumir o backend)
+fetch() API (Para consumir a API Flask)
 
 Ambiente de Desenvolvimento:
 
 VS Code
 
-Extensão Live Server
+venv (Ambiente virtual Python)
 
-🏁 Começando (Setup e Instalação)
+Live Server (Extensão do VS Code para servir o frontend)
+
+🏁 Como Rodar (Setup Local)
 Siga estes passos para configurar e rodar o projeto em sua máquina local.
 
-Instalação
+1. Preparação
 Clone o repositório:
 
 Bash
 
-git clone [URL_DO_SEU_REPOSITORIO_AQUI]
-cd [NOME-DO-REPOSITORIO]
+git clone [URL_DO_SEU_REPOSITORIO]
+cd [NOME-DO-SEU-PROJETO]
 Crie e ative o ambiente virtual (venv):
 
 Bash
@@ -81,6 +85,7 @@ python -m venv venv
 # Ative a venv
 # No Windows (PowerShell/CMD):
 .\venv\Scripts\activate
+
 # No Mac/Linux (Bash/Zsh):
 source venv/bin/activate
 (Você verá (venv) no início do seu terminal)
@@ -89,15 +94,12 @@ Instale as dependências do Python:
 
 Bash
 
-# Se você criou o requirements.txt:
+# O pip vai ler o arquivo requirements.txt e instalar tudo
 pip install -r requirements.txt
-
-# Se não, instale manualmente:
-pip install Flask Flask-SQLAlchemy Flask-CORS
-🚀 Executando o Projeto
+2. Executando o Projeto
 O sistema é dividido em duas partes (Backend e Frontend) que devem ser executadas simultaneamente em terminais/processos separados.
 
-1. Rodando o Backend (API Flask)
+▶️ Parte 1: Rodar o Backend (API Flask)
 O backend é o "cérebro" que se conecta ao banco de dados.
 
 No seu terminal (com a (venv) ativa), navegue até a pasta sistema (onde o app.py está):
@@ -114,14 +116,14 @@ Isso iniciará o servidor da API. Você verá no terminal: * Running on http://1
 
 Deixe este terminal rodando.
 
-Nota: Na primeira vez que você rodar, o app.py criará automaticamente o arquivo de banco de dados saep_db.db (dentro da pasta sistema) e o populará com os usuários e produtos iniciais.
+Nota: Na primeira vez que você rodar, o app.py criará automaticamente o arquivo de banco de dados saep_db.db (dentro da pasta sistema) e o populará com os dados iniciais.
 
-2. Rodando o Frontend (Interface Web)
-O frontend é o "site" (HTML/CSS/JS) que você acessa no navegador. A forma mais fácil é usando o Live Server no VS Code.
+▶️ Parte 2: Rodar o Frontend (Interface Web)
+O frontend é o "site" (HTML/CSS/JS) que você acessa no navegador.
 
 Abra a pasta completa do projeto no VS Code.
 
-Instale a extensão Live Server (procure por ritwickdey.LiveServer na aba de Extensões).
+Se ainda não tiver, instale a extensão Live Server
 
 No explorador de arquivos, vá até a pasta sistema.
 
@@ -131,4 +133,10 @@ Selecione "Open with Live Server".
 
 Isso abrirá automaticamente o seu navegador no endereço http://127.0.0.1:5500/sistema/ (a porta 5500 pode variar).
 
-Pronto! O sistema está no ar. Você pode fazer login com admin / admin123 e testar todas as funcionalidades.
+Pronto! O sistema está no ar.
+
+Credenciais de teste:
+
+Usuário: admin
+
+Senha: admin123
