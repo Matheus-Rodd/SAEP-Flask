@@ -132,30 +132,3 @@ Selecione "Open with Live Server".
 Isso abrirá automaticamente o seu navegador no endereço http://127.0.0.1:5500/sistema/ (a porta 5500 pode variar).
 
 Pronto! O sistema está no ar. Você pode fazer login com admin / admin123 e testar todas as funcionalidades.
-
-📁 Estrutura do Projeto
-seu-projeto/
-├── venv/                   # Ambiente virtual do Python (não vai para o GitHub)
-├── sistema/                # Pasta principal do sistema
-│   ├── app.py              # Backend: App principal Flask (API)
-│   ├── config.py           # Backend: Configurações (ex: banco)
-│   ├── extensions.py       # Backend: Instância do SQLAlchemy (db)
-│   ├── models.py           # Backend: Modelos das tabelas (ORM)
-│   ├── saep_db.db          # Backend: O banco de dados SQLite
-│   │
-│   ├── index.html          # Frontend: Página de Login (Entrega 4)
-│   ├── home.html           # Frontend: Dashboard (Entrega 5)
-│   ├── produtos.html       # Frontend: CRUD de Produtos (Entrega 6)
-│   ├── estoque.html        # Frontend: Gestão de Estoque (Entrega 7)
-│   │
-│   ├── style.css           # Frontend: Folha de estilos "Clean"
-│   ├── login.js            # Frontend: JS do Login
-│   ├── home.js             # Frontend: JS do Dashboard
-│   ├── produtos.js         # Frontend: JS do CRUD
-│   └── estoque.js          # Frontend: JS do Estoque
-│
-├── ANEXO III - doc.docx    # Documentação (Entregas 1, 8, 9)
-├── DER.png                 # Diagrama (Entrega 2)
-├── script_banco.sql        # Script SQL (Entrega 3)
-├── requirements.txt        # Dependências do Python (Opcional, mas recomendado)
-└── README.md               # Este arquivo
