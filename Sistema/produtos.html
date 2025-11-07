@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos - SAEP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <span id="user-info">Gestão de Produtos</span>
+            <a href="home.html" class="btn-back">Voltar ao Dashboard</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Produtos Cadastrados</h1>
+
+        <div class="toolbar">
+            <input type="text" id="search-input" placeholder="Buscar por nome...">
+            
+            <button id="add-product-btn" class="btn-primary">Cadastrar Novo Produto</button>
+        </div>
+
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Estoque</th>
+                    <th>Est. Mínimo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="product-table-body">
+                </tbody>
+        </table>
+    </main>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title">Cadastrar Produto</h2>
+            <form id="product-form">
+                <input type="hidden" id="product-id">
+                
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+                
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao"></textarea>
+                
+                <label for="quantidade_estoque">Estoque Atual:</label>
+                <input type="number" id="quantidade_estoque" value="0" required>
+                
+                <label for="estoque_minimo">Estoque Mínimo:</label>
+                <input type="number" id="estoque_minimo" value="10" required>
+                
+                <button type="submit" class="btn-primary">Salvar</button>
+            </form>
+            <p id="modal-error" class="error"></p>
+        </div>
+    </div>
+
+    <script src="produtos.js"></script>
+</body>
+</html>

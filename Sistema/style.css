@@ -1,0 +1,558 @@
+/* ===================================================================
+   1. VARIÁVEIS GLOBAIS E RESET
+   Define a paleta de cores "Clean" (Azul-Ardósia e Cinzas)
+=================================================================== */
+
+:root {
+    /* Paleta Principal (Azul-Ardósia / Slate Blue) */
+    --cor-primaria: #5A7A9E;
+    --cor-primaria-hover: #4F6B8A;
+    
+    /* Cores de Alerta */
+    --cor-perigo: #EF4444;
+    --cor-perigo-hover: #D83A3A;
+    --cor-aviso: #F59E0B;
+    --cor-aviso-hover: #D98C0A;
+    --cor-sucesso: #10B981;
+    
+    /* Cores de UI (Interface) */
+    --cor-cinza: #64748B;
+    --cor-cinza-hover: #475569;
+    
+    /* Cores de Fundo e Texto */
+    --cor-fundo-pagina: #F7F9FC; /* Quase branco, tom azulado/cinza */
+    --cor-fundo-container: #ffffff;
+    --cor-borda: #E2E8F0; /* Borda bem clara */
+    --cor-texto: #334155; /* Cinza-escuro (em vez de preto) */
+    --cor-texto-claro: #64748B;
+
+    /* Efeitos */
+    --sombra-sutil: 0 4px 12px rgba(100, 116, 139, 0.07);
+    --sombra-media: 0 6px 18px rgba(100, 116, 139, 0.1);
+    --borda-raio: 6px; /* Um pouco mais sutil que 8px */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-texto);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Remove a centralização para as páginas internas */
+body:has(.header) {
+    display: block;
+    min-height: auto;
+}
+
+h1, h2 {
+    color: var(--cor-texto);
+    font-weight: 600;
+}
+
+a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a:hover {
+    color: var(--cor-primaria-hover);
+}
+
+/* ===================================================================
+   2. CLASSES UTILITÁRIAS (Botões)
+=================================================================== */
+
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: var(--borda-raio);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+.btn-danger {
+    background-color: var(--cor-perigo);
+    color: white;
+}
+.btn-danger:hover {
+    background-color: var(--cor-perigo-hover);
+}
+
+.btn-warning {
+    background-color: var(--cor-aviso);
+    color: var(--cor-fundo-container);
+}
+.btn-warning:hover {
+    background-color: var(--cor-aviso-hover);
+}
+
+.btn-secondary {
+    background-color: var(--cor-cinza);
+    color: white;
+}
+.btn-secondary:hover {
+    background-color: var(--cor-cinza-hover);
+}
+
+/* ===================================================================
+   3. ESTILOS DE FORMULÁRIO (Inputs, Selects, Labels)
+=================================================================== */
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--cor-texto-claro);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--borda-raio);
+    box-sizing: border-box; 
+    font-size: 1rem;
+    background-color: #FFF; /* Garante fundo branco */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    /* Sombra de foco na cor primária */
+    box-shadow: 0 0 0 3px rgba(90, 122, 158, 0.25);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* ===================================================================
+   4. PÁGINA DE LOGIN
+=================================================================== */
+
+.login-container {
+    background-color: var(--cor-fundo-container);
+    padding: 2.5rem;
+    border-radius: var(--borda-raio);
+    box-shadow: var(--sombra-media);
+    width: 100%;
+    max-width: 380px;
+    box-sizing: border-box;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.login-container form label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--cor-texto-claro);
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: var(--borda-raio);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.login-container button:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+.error {
+    color: var(--cor-perigo);
+    font-size: 0.9em;
+    margin-top: 10px;
+    min-height: 1.2em;
+    text-align: center;
+}
+
+/* ===================================================================
+   5. CABEÇALHO (Páginas Internas)
+=================================================================== */
+
+.header {
+    background-color: var(--cor-fundo-container);
+    padding: 1rem 2rem;
+    box-shadow: var(--sombra-sutil);
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#user-info {
+    font-size: 1.1em;
+    color: var(--cor-texto-claro);
+    font-weight: 500;
+}
+
+#user-info strong {
+    color: var(--cor-texto);
+}
+
+.btn-logout {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    background-color: var(--cor-perigo);
+    color: white;
+    border: none;
+    border-radius: var(--borda-raio);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.btn-logout:hover {
+    background-color: var(--cor-perigo-hover);
+}
+
+.btn-back {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    background-color: var(--cor-cinza);
+    color: white;
+    border-radius: var(--borda-raio);
+    text-decoration: none;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+.btn-back:hover {
+    background-color: var(--cor-cinza-hover);
+}
+
+
+/* ===================================================================
+   6. CONTAINER PRINCIPAL (Páginas Internas)
+=================================================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto; 
+    padding: 1rem;
+}
+
+/* ===================================================================
+   7. DASHBOARD (home.html)
+=================================================================== */
+
+.main-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.nav-button {
+    display: block;
+    background-color: var(--cor-fundo-container);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--borda-raio);
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--cor-texto);
+    box-shadow: var(--sombra-sutil);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-button:hover {
+    transform: translateY(-4px); /* Efeito de "levantar" sutil */
+    box-shadow: var(--sombra-media);
+    border-color: var(--cor-primaria);
+}
+
+.nav-button h2 {
+    margin-top: 0;
+    color: var(--cor-primaria);
+}
+
+.nav-button p {
+    font-size: 1rem;
+    color: var(--cor-texto-claro);
+}
+
+/* ===================================================================
+   8. TABELAS (Estilo "Clean")
+=================================================================== */
+
+/* Envolvemos a tabela para dar o shadow/radius */
+.table-container {
+    background-color: var(--cor-fundo-container);
+    border-radius: var(--borda-raio);
+    box-shadow: var(--sombra-sutil);
+    overflow: hidden; /* Garante que a tabela respeite o radius */
+    margin-top: 2rem;
+    border: 1px solid var(--cor-borda);
+}
+
+.product-table,
+.historico-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Cabeçalho da Tabela */
+.product-table th, .historico-table th {
+    background-color: var(--cor-fundo-pagina);
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--cor-texto-claro);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    /* Apenas borda inferior no cabeçalho */
+    border-bottom: 2px solid var(--cor-borda); 
+}
+
+/* Células da Tabela */
+.product-table td, .historico-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--cor-borda);
+    color: var(--cor-texto);
+    background: var(--cor-fundo-container);
+}
+
+/* Remove a borda da última linha */
+.product-table tbody tr:last-child td,
+.historico-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* Efeito de hover na linha */
+.product-table tbody tr:hover td,
+.historico-table tbody tr:hover td {
+    background-color: var(--cor-fundo-pagina);
+}
+
+/* Botões de Ação na Tabela */
+.product-table td .btn-edit {
+    background-color: var(--cor-aviso);
+    color: #333;
+    border: none;
+    padding: 8px 12px;
+    border-radius: var(--borda-raio);
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.2s ease;
+}
+.product-table td .btn-edit:hover {
+    background-color: var(--cor-aviso-hover);
+}
+
+.product-table td .btn-delete {
+    background-color: var(--cor-perigo);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: var(--borda-raio);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.product-table td .btn-delete:hover {
+    background-color: var(--cor-perigo-hover);
+}
+
+
+/* ===================================================================
+   9. PÁGINA DE PRODUTOS (toolbar)
+=================================================================== */
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap; 
+    gap: 1rem;
+}
+
+#search-input {
+    width: 50%;
+    min-width: 250px;
+    padding: 12px;
+}
+
+/* ===================================================================
+   10. PÁGINA DE ESTOQUE (layout)
+=================================================================== */
+
+.form-container,
+.historico-container {
+    background-color: var(--cor-fundo-container);
+    padding: 2.5rem;
+    border-radius: var(--borda-raio);
+    box-shadow: var(--sombra-sutil);
+    margin-bottom: 2rem;
+    border: 1px solid var(--cor-borda);
+}
+
+.form-container h2,
+.historico-container h2 {
+    margin-top: 0;
+    text-align: center;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.radio-group label {
+    font-weight: 500;
+    color: var(--cor-texto-claro);
+    cursor: pointer;
+}
+.radio-group input {
+    cursor: pointer;
+}
+
+#alert-message {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+.alert-success {
+    color: var(--cor-sucesso);
+}
+.alert-error {
+    color: var(--cor-perigo);
+}
+
+
+/* ===================================================================
+   11. MODAL (Popup de Cadastro/Edição)
+=================================================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* Overlay mais escuro e slate */
+    background-color: rgba(51, 65, 85, 0.5); 
+}
+
+.modal-content {
+    background-color: var(--cor-fundo-container);
+    margin: 10% auto;
+    padding: 2.5rem;
+    border-radius: var(--borda-raio);
+    width: 90%;
+    max-width: 550px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--cor-texto);
+}
+
+#modal-title {
+    margin-top: 0;
+}
+
+#product-form button[type="submit"] {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: var(--borda-raio);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+#product-form button[type="submit"]:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+#modal-error {
+    color: var(--cor-perigo);
+    margin-top: 10px;
+    text-align: center;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SAEP</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    
+    <header class="header">
+        <div class="header-container">
+            <span id="user-info">
+                Olá, <strong id="username-display">...</strong>
+            </span>
+            <button id="logout-button" class="btn-logout">Sair</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Dashboard Principal</h1>
+        
+        <nav class="main-nav">
+            <a href="produtos.html" class="nav-button">
+                <h2>Cadastro de Produto</h2>
+                <p>Cadastrar, editar e excluir produtos.</p>
+            </a>
+            
+            <a href="estoque.html" class="nav-button">
+                <h2>Gestão de Estoque</h2>
+                <p>Registrar entradas e saídas de produtos.</p>
+            </a>
+        </nav>
+    </main>
+
+    <script src="home.js"></script>
+</body>
+</html>
